@@ -42,7 +42,9 @@ object RestConnectorUtil {
                      connStr: String,
                      contentType: String,
                      respType: String,
-                      headers: Array[Header]): Any = {
+                  xamzdate: String,
+                  authorization: String
+                      ): Any = {
 
 
     // print("path in callRestAPI : " + uri + " , method : " + method + ", content type : " +
@@ -54,10 +56,10 @@ object RestConnectorUtil {
       case "GET" => Http(addQryParmToUri(uri, data))
         .header("contenty-type",
                      "application/x-www-form-urlencoded")
-        .header(headers(0).name,
-          headers(0).value)
-        .header(headers(1).name,
-          headers(1).value)
+        .header("X-Amz-Date",
+          xamzdate)
+        .header("Authorization",
+          authorization)
       case "PUT" => Http(uri).put(data).header("content-type", contentType)
       case "DELETE" => Http(uri).method("DELETE")
       case "POST" => Http(uri).postData(data).header("content-type", contentType)

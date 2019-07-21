@@ -83,6 +83,10 @@ class RESTOptions(
   val callStrictlyOnce = parameters.getOrElse(REST_CALL_STRICTLY_ONCE, "N")
   val schemaSamplePcnt = parameters.getOrElse(REST_SCHEMA_SAMPLE_PCNT, "30")
 
+  val xamzdate = parameters.getOrElse(X_AMZ_DATE, "")
+  val authorization = parameters.getOrElse(AUTHORIZATION, "")
+
+
 }
 
 object RESTOptions {
@@ -115,4 +119,10 @@ object RESTOptions {
   val REST_OAUTH1_TOKEN_SECRET = newOption("oauthTokenSecret")
   val REST_CALL_STRICTLY_ONCE = newOption("callStrictlyOnce")
   val REST_SCHEMA_SAMPLE_PCNT = newOption("schemaSamplePcnt")
+
+  val X_AMZ_DATE = newOption("X-Amz-Date")
+  val AUTHORIZATION = newOption("authorization")
+
+
+
 }
